@@ -5,23 +5,32 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
     [SerializeField] LayerMask groundLayer;
+    public RealtimeCsPy realtimecspy;
     /*�e��ϐ��ݒ�*/
     public float speed = 1.0f;
     public float jumpPow = 1.0f;
     private float x_speed;
+    private string status_msg;
     new Rigidbody2D rigidbody2D;
+
     // Start is called before the first frame update
     void Start()
     {
+        realtimecspy = GameObject.Find("voiceRec").GetComponent<RealtimeCsPy>();
+        status_msg = realtimecspy.receive_msg;
+        Debug.Log(status_msg);
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        status_msg = realtimecspy.receive_msg;
+        Debug.Log(status_msg);
         //player�ړ�
         PlayerMove();
-        if (Input.GetKeyDown(KeyCode.Space) && isGround())
+        if ((Input.GetKeyDown(KeyCode.Space) && isGround())
+          || (status_msg == "jump" && isGround()))
         {
             Jump();
         }

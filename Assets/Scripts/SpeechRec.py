@@ -2,7 +2,7 @@ import time
 import speech_recognition
 import pyaudio
 
-SAMPLERATE = 24100
+SAMPLERATE = 12100
 
 def callback(in_data, frame_count, time_info, status):
     global sprec 

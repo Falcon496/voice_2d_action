@@ -8,6 +8,8 @@ public class RealtimeCsPy : MonoBehaviour
 
     Process pr = null;
 
+    public string receive_msg = "start_msg";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +51,12 @@ public class RealtimeCsPy : MonoBehaviour
     public void process_DataReceived(object sender, DataReceivedEventArgs e)
     {
         string output = e.Data + "\r\n";
+        if(e.Data == null){
+            receive_msg = "noting";
+        }else{
+            receive_msg = output;
+        }
 
-        print(output);
+        // print(receive_msg);
     }
 }
