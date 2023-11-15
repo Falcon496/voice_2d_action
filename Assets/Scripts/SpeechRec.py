@@ -8,7 +8,7 @@ def callback(in_data, frame_count, time_info, status):
     global sprec 
     try:
         audiodata = speech_recognition.AudioData(in_data,SAMPLERATE,2)
-        sprec_text = sprec.recognize_google(audiodata, language='ja-JP')
+        sprec_text = sprec.recognize_google(audiodata)
         print(sprec_text)
     except speech_recognition.UnknownValueError:
         pass
