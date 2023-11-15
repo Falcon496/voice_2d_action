@@ -24,7 +24,7 @@ public class RealtimeCsPy : MonoBehaviour
         // pythonファイルの指定
         pr.StartInfo.FileName = @"C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python39_64\python.exe";
         // 実行したいpythonのコードを指定
-        pr.StartInfo.Arguments = @" -u C:\Users\taka4\unity\voice_2d_action\Assets\Scripts\Ctest.py";
+        pr.StartInfo.Arguments = @" -u C:\Users\taka4\unity\voice_2d_action\Assets\Scripts\SpeechRec.py";
 
         // コンソール画面を表示させない
         pr.StartInfo.CreateNoWindow = true;
