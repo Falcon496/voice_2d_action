@@ -364,6 +364,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  realtimecspy: {fileID: 0}
   speed: 2
   jumpPow: 10
 --- !u!1 &519420028
@@ -1649,7 +1650,7 @@ GameObject:
   - component: {fileID: 1178143066}
   - component: {fileID: 1178143065}
   m_Layer: 0
-  m_Name: voice_rec
+  m_Name: voiceRec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1667,6 +1668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba565382e537904d828db02b0454d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  receive_msg: start
 --- !u!4 &1178143066
 Transform:
   m_ObjectHideFlags: 0

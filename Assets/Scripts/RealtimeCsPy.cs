@@ -50,7 +50,8 @@ public class RealtimeCsPy : MonoBehaviour
     /// </summary>
     public void process_DataReceived(object sender, DataReceivedEventArgs e)
     {
-        string output = e.Data + "\r\n";
+        // string output = e.Data + "\r\n";
+        string output = e.Data;
         if(e.Data == null){
             receive_msg = "noting";
         }else{

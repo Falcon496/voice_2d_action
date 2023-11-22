@@ -29,10 +29,12 @@ public class playerMovement : MonoBehaviour
         Debug.Log(status_msg);
         //player�ړ�
         PlayerMove();
-        if ((Input.GetKeyDown(KeyCode.Space) && isGround())
-          || (status_msg == "jump" && isGround()))
-        {
+        if ((Input.GetKeyDown(KeyCode.Space) && isGround())){
             Jump();
+        }
+        else if(status_msg == "jump" && isGround()){
+            Jump();
+            realtimecspy.receive_msg = "";
         }
     }
 
@@ -44,6 +46,16 @@ public class playerMovement : MonoBehaviour
             x_speed = speed;
         else if (Input.GetKey(KeyCode.UpArrow))
             x_speed = 0;
+        else if (status_msg == "right"){
+            x_speed = speed;
+            realtimecspy.receive_msg = "";
+        }else if (status_msg == "left"){
+            x_speed = -speed;
+            realtimecspy.receive_msg = "";
+        }else if (status_msg == "stop"){
+            x_speed = 0;
+            realtimecspy.receive_msg = "";
+        }
         rigidbody2D.velocity = new Vector2(x_speed, rigidbody2D.velocity.y);
     }
     public void Jump()
