@@ -8,16 +8,15 @@ SAMPLERATE = 44100
 def callback(in_data, frame_count, time_info, status):
     global sprec 
     try:
-        # print("listening")
         audiodata = speech_recognition.AudioData(in_data,SAMPLERATE,2)
         sprec_text = sprec.recognize_google(audiodata, language="ja-jp")
-        if sprec_text == "ジャンプ":
+        if 'ジャンプ' in sprec_text:
             print("jump")
-        elif sprec_text == "右":
+        elif '右' in sprec_text:
             print("right")
-        elif sprec_text == "左":
+        elif '左' in sprec_text:
             print("left")
-        elif sprec_text == "止まれ":
+        elif '止' in sprec_text:
             print("stop")
         else:
             print(sprec_text)

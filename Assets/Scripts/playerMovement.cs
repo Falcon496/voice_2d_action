@@ -40,17 +40,21 @@ public class playerMovement : MonoBehaviour
 
     public void PlayerMove()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow)){
             x_speed = -speed;
-        else if (Input.GetKey(KeyCode.RightArrow))
+            this.GetComponent<SpriteRenderer>().flipX = true;
+        }else if (Input.GetKey(KeyCode.RightArrow)){
             x_speed = speed;
-        else if (Input.GetKey(KeyCode.UpArrow))
+            this.GetComponent<SpriteRenderer>().flipX = false;
+        }else if (Input.GetKey(KeyCode.UpArrow))
             x_speed = 0;
         else if (status_msg == "right"){
             x_speed = speed;
+            this.GetComponent<SpriteRenderer>().flipX = false;
             realtimecspy.receive_msg = "";
         }else if (status_msg == "left"){
             x_speed = -speed;
+            this.GetComponent<SpriteRenderer>().flipX = true;
             realtimecspy.receive_msg = "";
         }else if (status_msg == "stop"){
             x_speed = 0;
